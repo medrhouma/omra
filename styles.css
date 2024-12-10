@@ -1,0 +1,148 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000000;
+    color: #FF0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.container {
+    text-align: center;
+    border: 2px solid #FF0000;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #000000;
+    animation: glitch 1s infinite;
+}
+
+.alert-symbol {
+    font-size: 50px;
+    margin-bottom: 20px;
+    animation: pulse 1s infinite;
+}
+
+.container p {
+    font-size: 24px;
+    position: relative;
+    color: #FF0000;
+}
+
+/* Glitch effect for container */
+@keyframes glitch {
+    0% {
+        transform: none;
+        opacity: 1;
+    }
+    10% {
+        transform: skew(-0.5deg, -0.5deg);
+        opacity: 0.75;
+    }
+    20% {
+        transform: none;
+        opacity: 1;
+    }
+    30% {
+        transform: skew(0.5deg, 0.5deg);
+        opacity: 0.75;
+    }
+    40% {
+        transform: none;
+        opacity: 1;
+    }
+    50% {
+        transform: skew(-0.5deg, -0.5deg);
+        opacity: 0.75;
+    }
+    60% {
+        transform: none;
+        opacity: 1;
+    }
+    70% {
+        transform: skew(0.5deg, 0.5deg);
+        opacity: 0.75;
+    }
+    80% {
+        transform: none;
+        opacity: 1;
+    }
+    90% {
+        transform: skew(-0.5deg, -0.5deg);
+        opacity: 0.75;
+    }
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+/* Pulse effect for alert symbol */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Additional glitch lines */
+.container p::before, .container p::after {
+    content: "Votre téléphone est piraté";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    color: #FF0000;
+    top: 0;
+}
+
+.container p::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitchTop 3s infinite linear alternate-reverse;
+}
+
+.container p::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitchBottom 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitchTop {
+    0% {
+        clip: rect(40px, 9999px, 56px, 0);
+        transform: skew(0.3deg);
+    }
+    50% {
+        clip: rect(10px, 9999px, 90px, 0);
+        transform: skew(-0.3deg);
+    }
+    100% {
+        clip: rect(20px, 9999px, 70px, 0);
+        transform: skew(0.3deg);
+    }
+}
+
+@keyframes glitchBottom {
+    0% {
+        clip: rect(85px, 9999px, 140px, 0);
+        transform: skew(-0.3deg);
+    }
+    50% {
+        clip: rect(55px, 9999px, 120px, 0);
+        transform: skew(0.3deg);
+    }
+    100% {
+        clip: rect(65px, 9999px, 130px, 0);
+        transform: skew(-0.3deg);
+    }
+}
